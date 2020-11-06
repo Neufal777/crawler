@@ -15,7 +15,6 @@ func ClassifyCat(cat *Source) ([]string, []string) {
 
 		Sale []string - will contain all FOR_SALE categories
 		Rent []string - will contain all FOR_RENT categories
-
 	*/
 	for _, cat := range cat.Category {
 
