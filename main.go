@@ -1,8 +1,6 @@
 package main
 
 import (
-	"log"
-
 	"github.com/draco/core"
 )
 
@@ -38,6 +36,6 @@ func main() {
 	_, rent := core.ClassifyCat(&fuente)
 
 	//log.Println(sale)
-	log.Println(rent)
+	core.Pagination(rent)
 	//core.Pagination(cat)
 }
