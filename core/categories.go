@@ -2,7 +2,6 @@ package core
 
 import (
 	"log"
-	"strconv"
 )
 
 /*
@@ -44,30 +43,29 @@ func (cat *Source) ClassifyCat() ([]string, []string) {
 
 }
 
-func Pagination(catUrls []string) {
+// func Pagination(catUrls []string) {
 
-	/*
-		With a specific pattern, all the categories pages are saved
-		to be processed afterwards
-	*/
+//
+// 		With a specific pattern, all the categories pages are saved
+// 		to be processed afterwards
+//
 
-	var pagination []string
-	for _, catUrl := range catUrls {
+// 	var pagination []string
+// 	for _, catUrl := range catUrls {
 
-		/*
-			Foreach categorie url, make the pagination
-		*/
-		for i := 1; i <= 4; i++ {
+//
+// 			Foreach categorie url, make the pagination
+//
+// 		for i := 1; i <= 4; i++ {
 
-			nextPage := catUrl + "/" + strconv.Itoa(i)
-			pagination = append(pagination, nextPage)
-			ProcessPage(nextPage)
+// 			nextPage := catUrl + "/" + strconv.Itoa(i)
+// 			pagination = append(pagination, nextPage)
+// 			ProcessPage(nextPage)
 
-		}
-	}
+// 		}
+// 	}
 
-	log.Println(pagination)
-}
+// }
 
 func CheckPageExists(page string) bool {
 

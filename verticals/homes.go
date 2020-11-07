@@ -22,4 +22,10 @@ type Homes struct {
 	price        Price
 	FloorArea    FloorArea
 	PlotArea     PlotArea
+	City         string
+	Region       string
+	Postcode     string
+	Adress       string
+	Longitude    string
+	Latitude     string
 }

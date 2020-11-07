@@ -1,24 +1,28 @@
 package core
 
-func downloadHtml(url string) {
+import (
+	"io/ioutil"
+	"net/http"
+)
+
+func DownloadHtml(url string) []byte {
 
 	/*
+		This function downloads an html source code and
+		turns it into a []byte
+	*/
 
-	 */
+	resp, err := http.Get(url)
+
+	if err != nil {
+		panic(err)
+	}
+
+	defer resp.Body.Close()
+
+	html, err := ioutil.ReadAll(resp.Body)
+
+	//htmlString := string(html[:])
+
+	return html
 }
-
-// resp, err := http.Get("https://www.instagram.com/neufal79/")
-
-// if err != nil {
-// 	log.Panic(err)
-// }
-
-// defer resp.Body.Close()
-
-// body, err := ioutil.ReadAll(resp.Body)
-
-// if err != nil {
-// 	log.Panic(err)
-// }
-
-// log.Println(string(body[:]))
