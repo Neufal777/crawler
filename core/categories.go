@@ -10,7 +10,7 @@ Categories is used for getting all the categories from
 the Url to parse all the ads inside, including the pagination
 */
 
-func ClassifyCat(cat *Source) ([]string, []string) {
+func (cat *Source) ClassifyCat() ([]string, []string) {
 
 	Sale := []string{}
 	Rent := []string{}
@@ -37,7 +37,7 @@ func ClassifyCat(cat *Source) ([]string, []string) {
 
 	/*
 		Once we have 2 slices with all the categories of each,
-		we send them to be processed
+		we send them to be processed [PAGINATION]
 	*/
 
 	return Sale, Rent
@@ -51,13 +51,41 @@ func Pagination(catUrls []string) {
 		to be processed afterwards
 	*/
 
+	var pagination []string
 	for _, catUrl := range catUrls {
 
 		/*
 			Foreach categorie url, make the pagination
 		*/
-		for i := 0; i < 6; i++ {
-			log.Println(catUrl + "&page=" + strconv.Itoa(i))
+		for i := 1; i <= 4; i++ {
+
+			nextPage := catUrl + "/" + strconv.Itoa(i)
+			pagination = append(pagination, nextPage)
+			ProcessPage(nextPage)
+
 		}
 	}
+
+	log.Println(pagination)
+}
+
+func CheckPageExists(page string) bool {
+
+	/*
+		This function checks if a specific page exists or not
+	*/
+
+	return false
+}
+
+func ProcessPage(page string) {
+
+	/*
+		This function will proceess each url of a page
+		coming grom Pagination function and will get all
+		the ads from there
+	*/
+
+	log.Println("Processing...")
+	log.Println(page)
 }
