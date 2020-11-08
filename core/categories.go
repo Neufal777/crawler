@@ -2,6 +2,7 @@ package core
 
 import (
 	"log"
+	"regexp"
 )
 
 /*
@@ -41,6 +42,37 @@ func (cat *Source) ClassifyCat() ([]string, []string) {
 
 	return Sale, Rent
 
+}
+
+func GetAdUrls(cat []string) [][]string {
+
+	var adUrls [][]string
+	//count := 0
+	for _, c := range cat {
+
+		/*
+			Here we will download each category html
+			and find for all the available ads
+		*/
+
+		catHtml := DownloadHtml(c)
+		log.Println("Page downloaded. processing..")
+
+		rAd := regexp.MustCompile("data-navigate-ref=.([^\"']*)")
+
+		adUrls = rAd.FindAllStringSubmatch(catHtml, 2)
+
+		if adUrls == nil {
+			/*
+				If there's no more ads, go to the next page
+			*/
+			log.Println("This page has no ads or the Regex is wrong...")
+
+		}
+
+	}
+
+	return adUrls
 }
 
 // func Pagination(catUrls []string) {

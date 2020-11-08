@@ -5,7 +5,7 @@ import (
 	"net/http"
 )
 
-func DownloadHtml(url string) []byte {
+func DownloadHtml(url string) string {
 
 	/*
 		This function downloads an html source code and
@@ -20,8 +20,9 @@ func DownloadHtml(url string) []byte {
 
 	defer resp.Body.Close()
 
-	html, err := ioutil.ReadAll(resp.Body)
+	h, err := ioutil.ReadAll(resp.Body)
 
+	html := string(h[:])
 	//htmlString := string(html[:])
 
 	return html
