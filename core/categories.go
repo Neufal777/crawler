@@ -4,8 +4,8 @@ import (
 	"log"
 	"regexp"
 
-	"github.com/draco/utils"
-	"github.com/draco/verticals"
+	"github.com/crawler/utils"
+	"github.com/crawler/verticals"
 )
 
 /*

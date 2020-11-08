@@ -7,7 +7,7 @@ It's a library that allows you to crawl through real estate websites [any] and g
 Just run this command and make sure you import it into your project.
 
 ```bash
-go get github.com/Neufal777/draco
+go get github.com/Neufal777/crawler
 ```
 
 ## Usage

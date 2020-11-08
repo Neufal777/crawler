@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/draco/core"
+	"github.com/crawler/core"
 )
 
 func main() {
