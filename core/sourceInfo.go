@@ -18,7 +18,6 @@ const (
 	FOR_RENT = "FOR_RENT"
 	ID       = 281
 	COUNTRY  = "ES"
-	VERTICAL = 1
 	URL      = "https://www.pisos.com/"
 	AD_REGEX = "data-navigate-ref=.([^\"']*)"
 )

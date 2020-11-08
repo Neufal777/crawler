@@ -82,15 +82,6 @@ func GetAdUrls(cat string) ([][]string, int) {
 	return adUrls, count
 }
 
-func CheckPageExists(page string) bool {
-
-	/*
-		This function checks if a specific page exists or not
-	*/
-
-	return false
-}
-
 func ProcessAdList(adList [][]string, count int) {
 
 	var finalAdUrls []string
@@ -134,31 +125,28 @@ func AdExtractor(ads []string) {
 
 		//declare all the regex we are going to need to extract all that information
 		var (
-			rTitle   = regexp.MustCompile("<meta property=.og:title. content=.([^\"']*)")
-			rContent = regexp.MustCompile("<meta property=.og:description. content=.([^\"']*)")
-			//rType         = regexp.MustCompile("REGEX")
-			//rPropertyType = regexp.MustCompile("REGEX")
+			rTitle     = regexp.MustCompile("<meta property=.og:title. content=.([^\"']*)")
+			rContent   = regexp.MustCompile("<meta property=.og:description. content=.([^\"']*)")
 			rprice     = regexp.MustCompile("h1 jsPrecioH1.>([^<]*)")
 			rFloorArea = regexp.MustCompile("iv class=.icon icon-superficie.></div>([^ ]*)")
 			rPlotArea  = regexp.MustCompile("iv class=.icon icon-superficie.></div>([^ ]*)")
+			rRooms     = regexp.MustCompile("iv class=.icon icon-habitaciones.></div>([^<]*)")
+			rBathrooms = regexp.MustCompile("iv class=.icon icon-banyos.></div>([^<]*)")
+			rPictures  = regexp.MustCompile("<meta property=.og:image. content=.([^\"']*)")
+			//rType         = regexp.MustCompile("REGEX")
+			//rPropertyType = regexp.MustCompile("REGEX")
 			//rCity         = regexp.MustCompile("REGEX")
 			//rRegion       = regexp.MustCompile("REGEX")
 			//rPostcode     = regexp.MustCompile("REGEX")
 			//rAdress       = regexp.MustCompile("REGEX")
 			//rLongitude    = regexp.MustCompile("REGEX")
 			//rLatitude     = regexp.MustCompile("REGEX")
-			rRooms     = regexp.MustCompile("iv class=.icon icon-habitaciones.></div>([^<]*)")
-			rBathrooms = regexp.MustCompile("iv class=.icon icon-banyos.></div>([^<]*)")
-			rPictures  = regexp.MustCompile("<meta property=.og:image. content=.([^\"']*)")
 		)
 
 		adP := verticals.Homes{
-			Id:      "3",
 			Url:     ad,
 			Title:   rTitle.FindStringSubmatch(content)[1],
 			Content: rContent.FindStringSubmatch(content)[1],
-			//Type:         rType.FindStringSubmatch(content)[1],
-			//PropertyType: rPropertyType.FindStringSubmatch(content)[1],
 			Price: verticals.Price{
 				Value:    rprice.FindStringSubmatch(content)[1],
 				Currency: verticals.CURRENCY_EUR,
@@ -171,17 +159,20 @@ func AdExtractor(ads []string) {
 				Value: rPlotArea.FindStringSubmatch(content)[1],
 				Unit:  verticals.SQUARED_METERS,
 			},
+			Rooms:     rRooms.FindStringSubmatch(content)[1],
+			Bathrooms: rBathrooms.FindStringSubmatch(content)[1],
+			Pictures:  rPictures.FindAllStringSubmatch(content, -1), // -1 means we want All the images, we can limit the number of images
+			//Type:         rType.FindStringSubmatch(content)[1],
+			//PropertyType: rPropertyType.FindStringSubmatch(content)[1],
 			//City:      rCity.FindStringSubmatch(content)[1],
 			//Region:    rRegion.FindStringSubmatch(content)[1],
 			//Postcode:  rPostcode.FindStringSubmatch(content)[1],
 			//Adress:    rAdress.FindStringSubmatch(content)[1],
 			//Longitude: rLongitude.FindStringSubmatch(content)[1],
 			//Latitude:  rLatitude.FindStringSubmatch(content)[1],
-			Rooms:     rRooms.FindStringSubmatch(content)[1],
-			Bathrooms: rBathrooms.FindStringSubmatch(content)[1],
-			Pictures:  rPictures.FindAllStringSubmatch(content, -1), // -1 means we want All the images, we can limit the number of images
 		}
 
+		//Show the info of the ads parsed
 		log.Println(adP)
 	}
 }
