@@ -12,7 +12,7 @@ go get github.com/Neufal777/crawler
 
 ## Usage
 
-```python
+```golang
 func main() {
 
 	source := core.Source{
