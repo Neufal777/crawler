@@ -31,9 +31,16 @@ func main() {
 	// 	},
 	// }
 
-	prueba := []string{
-		"https://www.pisos.com/alquiler/pisos-a_coruna",
+	urls := []string{
+		"https://www.pisos.com/alquiler/pisos-barcelona/",
+		//"https://www.pisos.com/alquiler/pisos-barcelona",
 	}
 
-	core.GetAdUrls(prueba)
+	for _, url := range urls {
+
+		GetAdUrls, count := core.GetAdUrls(url)
+		core.ProcessAdList(GetAdUrls, count)
+
+	}
+
 }

@@ -5,7 +5,7 @@ import (
 	"net/http"
 )
 
-func DownloadHtml(url string) string {
+func DownloadHtml(url string) (string, error) {
 
 	/*
 		This function downloads an html source code and
@@ -25,5 +25,5 @@ func DownloadHtml(url string) string {
 	html := string(h[:])
 	//htmlString := string(html[:])
 
-	return html
+	return html, err
 }

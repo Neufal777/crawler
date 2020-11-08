@@ -20,4 +20,5 @@ const (
 	COUNTRY  = "ES"
 	VERTICAL = 1
 	URL      = "https://www.pisos.com/"
+	AD_REGEX = "data-navigate-ref=.([^\"']*)"
 )

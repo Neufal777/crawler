@@ -1,25 +1,31 @@
 package verticals
 
+const (
+	SQUARED_METERS = "m2"
+	CURRENCY_EUR   = "EUR"
+)
+
 type Price struct {
-	Value    int
+	Value    string
 	Currency string
 }
 
 type FloorArea struct {
-	Value int
+	Value string
 	Unit  string
 }
 type PlotArea struct {
-	Value int
+	Value string
 	Unit  string
 }
 type Homes struct {
-	Id           int
+	Id           string
+	Url          string
 	Title        string
 	Content      string
 	Type         string
 	PropertyType string
-	price        Price
+	Price        Price
 	FloorArea    FloorArea
 	PlotArea     PlotArea
 	City         string
@@ -28,4 +34,7 @@ type Homes struct {
 	Adress       string
 	Longitude    string
 	Latitude     string
+	Rooms        string
+	Bathrooms    string
+	Pictures     [][]string
 }
