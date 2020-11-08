@@ -56,7 +56,10 @@ Return a Struct(Homes struct) with all the information of each AD parsed
 ```bash
 { 
      https://www.pisos.com/comprar/duplex-bertamirans-5911333496_995784/
-     Dúplex en venta en Avenida de la Mahía, cerca de Calle de las Pesqueiras Se vende piso en el centro de ,  a lado del supermercado y mercadona. Reformado, con ascensor, estancias amplias y luminosas. Listo para entrar. Planta baja: cocina amueblad...   
+     Dúplex en venta en Avenida de la Mahía, cerca de Calle de las Pesqueiras 
+	 Se vende piso en el centro de ,  a lado del supermercado y mercadona.
+	 Reformado, con ascensor, estancias amplias y luminosas.
+	 Listo para entrar. Planta baja: cocina amueblad...   
      {119.000 € EUR}
      {120 m2}
      {120 m2}
@@ -65,6 +68,3 @@ Return a Struct(Homes struct) with all the information of each AD parsed
      [ https://fotos.imghs.net/xl/995784/5911333496.995784/995784_5911333496_18_20200716200528618.jpg]
 }
 ```
-
-## License
-[MIT](https://choosealicense.com/licenses/mit/)
