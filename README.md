@@ -52,10 +52,10 @@ func main() {
 
 ### Result
 
-Return a Struct(Homes struct) with all the information of each add parsed
+Return a Struct(Homes struct) with all the information of each AD parsed
 ```bash
 { 
-    https://www.pisos.com/comprar/duplex-bertamirans-5911333496_995784/
+     https://www.pisos.com/comprar/duplex-bertamirans-5911333496_995784/
      Dúplex en venta en Avenida de la Mahía, cerca de Calle de las Pesqueiras Se vende piso en el centro de ,  a lado del supermercado y mercadona. Reformado, con ascensor, estancias amplias y luminosas. Listo para entrar. Planta baja: cocina amueblad...   
      {119.000 € EUR}
      {120 m2}
