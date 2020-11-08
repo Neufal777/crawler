@@ -10,7 +10,6 @@ func main() {
 		Id:      core.ID,
 		Country: core.COUNTRY,
 		Url:     core.URL,
-
 		Category: []core.Category{
 			{
 				Type: core.FOR_SALE,
